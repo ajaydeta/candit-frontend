@@ -1,7 +1,7 @@
 <template>
   <div class="modal">
     <div class="modal-dialog">
-      <Close id="close" />
+      <a id="closeModal"></a>
       <div class="header1 dark-blue">Masuk</div>
       <div class="form">
         <InputGeneral @input="username" id="user" placeholder="Nama pengguna" />
@@ -17,13 +17,11 @@
 <script>
 import { reactive, ref, toRefs } from "vue";
 import InputGeneral from "@/components/input/InputGeneral";
-import Close from "@/components/ui/CloseModal";
 import Button from "@/components/ui/Button";
 
 export default {
   name: "LoginModal",
   components: {
-    Close,
     InputGeneral,
     Button,
   },
@@ -47,3 +45,14 @@ export default {
 </script>
 
 <style scoped src="./styleScoped.css"></style>
+<style scoped>
+#closeModal {
+  content: url("https://api.iconify.design/ep/close-bold.svg?color=%2324305e");
+  float: right;
+  width: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.25rem;
+}
+</style>
