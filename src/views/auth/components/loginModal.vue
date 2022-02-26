@@ -47,7 +47,7 @@ export default {
 <style scoped src="./styleScoped.css"></style>
 <style scoped>
 #closeModal {
-  content: url("https://api.iconify.design/ep/close-bold.svg?color=%2324305e");
+  content: url("../../../assets/icon/close.svg");
   float: right;
   width: 1.5rem;
   line-height: 1.5rem;
