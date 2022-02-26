@@ -1,0 +1,15 @@
+<template>
+  <input type="text" name="" id="" />
+</template>
+
+<script>
+export default {
+  name: "InputGeneral",
+  setup() {
+    return {};
+  },
+};
+</script>
+
+<style scoped>
+</style>
