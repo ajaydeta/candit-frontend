@@ -1,7 +1,7 @@
 <template>
-  <button type="button" :id="id" @click="action">
+  <span :id="id" @click="action">
     {{ placeholder }}
-  </button>
+  </span>
 </template>
 
 <script>
@@ -24,20 +24,13 @@ export default {
 </script>
 
 <style scoped>
-button {
-  margin-top: 20px;
-  width: 265px;
-  height: 40px;
-  left: 44px;
-  top: 399px;
-  background: #24305e;
-  border: 0px;
-  border-radius: 20px;
-
-  font-style: normal;
-  font-weight: bold;
-  font-size: 13px;
-  line-height: 19px;
-  color: #ffffff;
+span {
+  content: url("https://api.iconify.design/ep/close-bold.svg?color=%2324305e");
+  float: right;
+  width: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.25rem;
 }
 </style>
