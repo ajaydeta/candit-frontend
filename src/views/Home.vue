@@ -48,8 +48,8 @@ export default {
 .choice-user {
   width: 132px;
   height: 142px;
+  background-color: var(--tosca);
   margin: 5px auto;
   border-radius: 30px;
-  background-color: var(--tosca);
 }
 </style>
