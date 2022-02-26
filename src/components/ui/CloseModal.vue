@@ -1,7 +1,5 @@
 <template>
-  <span :id="id" @click="action">
-    {{ placeholder }}
-  </span>
+  <span :id="id" @click="action"></span>
 </template>
 
 <script>
@@ -13,7 +11,6 @@ export default {
   },
   setup(props, { emit }) {
     function action(payload) {
-      console.log("cadsdasdsad");
       emit("action", payload);
     }
     return {

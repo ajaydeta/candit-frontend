@@ -1,0 +1,96 @@
+.header1 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 33px;
+    font-family: var(--font-base);
+}
+
+.header2 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    font-family: var(--font-base);
+}
+
+.header3 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    font-family: var(--font-base);
+}
+
+.header4 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 118%;
+    font-family: var(--font-base);
+}
+
+.placeholder {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 19px;
+    font-family: var(--font-base);
+}
+
+.title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 9px;
+    line-height: 13px;
+    font-family: var(--font-base);
+}
+
+.titleButton1 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 19px;
+    font-family: var(--font-base);
+}
+
+.titleButton2 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 118%;
+    font-family: var(--font-base);
+}
+
+.price {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 118%;
+    font-family: var(--font-base);
+}
+
+.discount {
+    font-style: normal;
+    font-weight: 275;
+    font-size: 11px;
+    line-height: 118%;
+    text-decoration-line: line-through;
+    font-family: var(--font-base);
+}
+
+.description-menu {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 9px;
+    line-height: 118%;
+    font-family: var(--font-base);
+}
+
+.quantity {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 118%;
+    font-family: var(--font-base);
+}

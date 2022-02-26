@@ -46,22 +46,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.modal {
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
-  top: 0;
-  background-color: var(--black-transparent50);
-}
-
-.modal-dialog {
-  position: relative;
-  top: calc(100vh - 452px);
-  bottom: 0;
-  height: 452px;
-  padding: 40px;
-  background-color: var(--white);
-  border-radius: 50px 50px 0px 0px;
-}
-</style>
+<style scoped src="./styleScoped.css"></style>
