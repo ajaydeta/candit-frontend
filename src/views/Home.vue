@@ -21,7 +21,16 @@
 
   <LoginModal />
 </template>
-<script></script>
+<script>
+import LoginModal from "./auth/components/loginModal.vue";
+
+export default {
+  name: "Home",
+  components: {
+    LoginModal,
+  },
+};
+</script>
 <style scoped>
 .container-home {
   display: flex;
