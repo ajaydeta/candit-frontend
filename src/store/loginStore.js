@@ -1,6 +1,7 @@
 import {defineStore} from 'pinia'
 
 const state = () => ({
+        role: "",
         username: "",
         password: ""
     })

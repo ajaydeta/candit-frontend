@@ -8,10 +8,21 @@
 
 .modal-dialog {
     position: relative;
-    top: calc(100vh - 452px);
+    top: calc(100vh - 381px);
     bottom: 0;
-    height: 452px;
+    height: 300px;
     padding: 40px;
     background-color: var(--white);
-    border-radius: 50px 50px 0px 0px;
+    border-radius: 50px 50px 0 0;
+}
+
+#closeModal {
+    content: url("../../../assets/icon/close.svg");
+    width: 1.3rem;
+    position: absolute;
+    right: 0;
+}
+
+.header-container{
+    position: relative;
 }
