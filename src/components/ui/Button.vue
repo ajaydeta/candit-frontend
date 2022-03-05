@@ -13,7 +13,6 @@ export default {
   },
   setup(props, { emit }) {
     function action(payload) {
-      console.log("cadsdasdsad");
       emit("action", payload);
     }
     return {

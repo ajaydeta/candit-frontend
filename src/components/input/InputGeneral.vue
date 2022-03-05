@@ -3,8 +3,8 @@
     type="text"
     :id="id"
     :placeholder="placeholder"
-    v-model="inputVal"
-    @input="$emit('input', inputVal)"
+    :value="val"
+    @input='$emit("update:val", $event.target.value)'
   />
 </template>
 
@@ -16,6 +16,7 @@ export default {
   props: {
     id: String,
     placeholder: String,
+    val: String
   },
   setup() {
     const inputVal = ref("");

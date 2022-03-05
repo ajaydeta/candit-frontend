@@ -3,41 +3,48 @@
     <div class="modal-dialog">
       <a id="closeModal"></a>
       <div class="header1 dark-blue">Masuk</div>
-      <div class="form">
-        <InputGeneral @input="username" id="user" placeholder="Nama pengguna" />
-        <InputGeneral @input="username" id="password" placeholder="Password" />
+      <form class="form">
+        <InputGeneral id="user" placeholder="Nama pengguna" v-model:val="loginStore.username" :val="username" />
+        <InputPassword id="password" placeholder="Password" v-model:val="loginStore.password" :val="password" />
         <Button id="submit" placeholder="Masuk" @action="login()" />
         <div class="placeholder">Belum punya akun?</div>
         <div class="titleButton1">Daftar</div>
-      </div>
+      </form>
     </div>
   </div>
 </template>
 
 <script>
-import { reactive, ref, toRefs } from "vue";
+import { ref } from "vue";
 import InputGeneral from "@/components/input/InputGeneral";
 import Button from "@/components/ui/Button";
+import InputPassword from "@/components/input/InputPassword";
+import {useLoginStore} from "@/store/loginStore"
 
 export default {
   name: "LoginModal",
   components: {
+    InputPassword,
     InputGeneral,
     Button,
   },
   setup() {
-    const state = reactive({
-      count: 0,
-    });
-    const username = ref("");
+
+    const username = ref("")
+    const password = ref("")
+
+    const loginStore = useLoginStore();
+    // loginStore.$patch
 
     function login() {
-      console.log("login");
+      console.log(loginStore.username);
+      console.log(loginStore.password);
     }
 
     return {
-      ...toRefs(state),
       username,
+      password,
+      loginStore,
       login,
     };
   },
