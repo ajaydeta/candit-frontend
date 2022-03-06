@@ -5,7 +5,7 @@
       <div class="header1 dark-blue">Masuk</div>
       <div class="form">
         <InputGeneral @input="username" id="user" placeholder="Nama pengguna" />
-        <InputGeneral @input="username" id="password" placeholder="Password" />
+        <InputGeneral @input="password" id="password" placeholder="Password" />
         <Button id="submit" placeholder="Masuk" @action="login()" />
         <div class="placeholder">Belum punya akun?</div>
         <div class="titleButton1">Daftar</div>
