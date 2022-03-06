@@ -1,16 +1,16 @@
 <template>
 <div class="nav-bottom-container">
   <div @click="toProfile" class="nav-bottom-item">
-    <img v-if="profile" src="@/assets/icon/gg_profile-blue.svg">
-    <img v-else src="@/assets/icon/gg_profile.svg">
+    <img v-if="profile" src="@/assets/icon/gg_profile-blue.svg" alt="profile">
+    <img v-else src="@/assets/icon/gg_profile.svg" alt="profile">
   </div>
   <div @click="toHome" class="nav-bottom-item">
-    <img v-if="home" src="@/assets/icon/home-blue.svg">
-    <img v-else src="@/assets/icon/home.svg">
+    <img v-if="home" src="@/assets/icon/home-blue.svg" alt="home">
+    <img v-else src="@/assets/icon/home.svg" alt="home">
   </div>
   <div @click="toHistory" class="nav-bottom-item">
-    <img v-if="history" src="@/assets/icon/history-blue.svg">
-    <img v-else src="@/assets/icon/history.svg">
+    <img v-if="history" src="@/assets/icon/history-blue.svg" alt="history">
+    <img v-else src="@/assets/icon/history.svg" alt="history">
   </div>
 </div>
 </template>

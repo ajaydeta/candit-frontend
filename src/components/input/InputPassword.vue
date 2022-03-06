@@ -3,6 +3,7 @@
       type="password"
       :id="id"
       :placeholder="placeholder"
+      autocomplete="off"
       :value="val"
       @input='$emit("update:val", $event.target.value)'
   />
