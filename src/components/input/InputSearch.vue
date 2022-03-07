@@ -3,8 +3,8 @@
     type="text"
     :id="id"
     :placeholder="placeholder"
-    v-model="inputVal"
-    @input="$emit('input', inputVal)"
+    :value="val"
+    @input="doSearch"
   />
 </template>
 
@@ -16,16 +16,29 @@ export default {
   props: {
     id: String,
     placeholder: String,
+    val: String,
+    delay: {
+      type: Number,
+      default: 300,
+    },
+    doSearching: Function,
   },
-  setup() {
+  setup(props, { emit }) {
     const inputVal = ref("");
-    //
-    // watch(inputVal, (newVal, oldVal) => {
-    //   console.log("new:", newVal, "old:", oldVal)
-    // })
+
+    let timeOut = null;
+    function doSearch(event) {
+      clearTimeout(timeOut);
+      timeOut = setTimeout(() => {
+        emit("update:val", event.target.value);
+        console.log(event.target.value);
+        props.doSearching();
+      }, props.delay);
+    }
 
     return {
       inputVal,
+      doSearch,
     };
   },
 };
@@ -33,13 +46,21 @@ export default {
 
 <style scoped>
 input {
-  width: 400px;
-  background: transparent;
-  border: none;
-  outline: none;
-  width: 0px;
-  font-weight: 500;
-  font-size: 16px;
-  transition: 0.8s;
+  margin: 5px auto;
+  width: 325px;
+  height: 40px;
+  left: 22px;
+  top: 97px;
+  border: 1px solid #374785;
+  box-sizing: border-box;
+  border-radius: 20px;
+
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  padding: 20px;
+
+  display: flex;
 }
 </style>
