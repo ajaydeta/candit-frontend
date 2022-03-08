@@ -1,19 +1,25 @@
 <template>
-<div class="card-warung">
-  <div class="card-warung-content">
-    <div class="card-warung-img-wrapper">
-      <img src="@/assets/images/lalap.png" alt="lalap">
+  <div class="content-box-content">
+    <div class="image-box">
+      <div class="image-content">
+        <img src="@/assets/images/lapak/lapak.png" alt="avatar"/>
+      </div>
     </div>
-    <div class="card-warung-text-wrapper">{{ nama }}</div>
-    <div class="card-warung-badge">{{ jumlahMenu }} Menu</div>
+    <div class="image-title">
+      <p class="header3 dark-blue">{{ nama }}</p>
+    </div>
+    <div class="badge">
+      <div class="title font-white">
+        {{ jumlahMenu }} Menu
+      </div>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
 export default {
   name: "CardWarung",
-  props:{
+  props: {
     imgSrc: String,
     nama: String,
     jumlahMenu: Number
@@ -22,13 +28,37 @@ export default {
 </script>
 
 <style scoped>
-.card-warung{
+.content-box-content {
+  position: relative;
   width: 146px;
-  height: 184px;
+  height: 100%;
+
+  background: var(--white);
+  box-shadow: 4px 5px 25px rgba(0, 0, 0, 0.06);
+  border-radius: 20px;
 }
 
-.card-warung-content{
-  display: flex;
-  flex-direction: row;
+.image-box .image-content {
+  /* position: relative; */
+  /* z-index: 1; */
+  margin-top: 7px;
+  width: 146px;
+  height: 133px;
+  left: 22px;
+  top: 189px;
+}
+
+.content-box-content .image-title {
+  margin: 0 10px 10px;
+}
+
+.badge {
+  background-color: var(--secondary);
+  border-radius: 20px 20px 20px 0;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 8px 16px;
 }
 </style>

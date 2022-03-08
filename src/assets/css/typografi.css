@@ -94,3 +94,7 @@
   line-height: 118%;
   font-family: var(--font-base);
 }
+
+.font-white{
+  color: var(--white);
+}
