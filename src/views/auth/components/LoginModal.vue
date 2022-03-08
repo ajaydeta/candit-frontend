@@ -8,7 +8,7 @@
       <form class="form">
         <InputGeneral id="user" placeholder="Nama pengguna" v-model:val="loginStore.username" :val="username"/>
         <InputPassword id="password" placeholder="Password" v-model:val="loginStore.password" :val="password"/>
-        <Button id="submit" placeholder="Masuk" @action="login()"/>
+        <Button id="submit" placeholder="Masuk" @action="loginFunction()"/>
         <div class="placeholder">Belum punya akun?</div>
         <div class="titleButton1">Daftar</div>
       </form>
@@ -30,6 +30,9 @@ export default {
     InputGeneral,
     Button,
   },
+  props:{
+    loginFunction: Function
+  },
   setup() {
 
     const username = ref("")
@@ -37,18 +40,10 @@ export default {
 
     const loginStore = useLoginStore();
 
-    // loginStore.$patch
-
-    function login() {
-      console.log(loginStore.username);
-      console.log(loginStore.password);
-    }
-
     return {
       username,
       password,
       loginStore,
-      login,
     };
   },
 };

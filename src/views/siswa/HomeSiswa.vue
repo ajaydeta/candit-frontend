@@ -3,7 +3,7 @@
     <template #header>
       <div class="header-home-container">
         <div class="header-text-wrapper">
-          <p class="header1">Hai, {{ namaUser }}</p>
+          <p class="header1">C-Pay : {{ useRupiah(saldo) }}</p>
           <p class="header2">Mau makan apa hari ini ?</p>
         </div>
         <div class="header-image-wrapper">
@@ -22,7 +22,13 @@
 
       <div>
         <Splide :options="splideOpt">
-          <SplideSlide></SplideSlide>
+          <SplideSlide>
+            <CardWarung
+              img-src="lalap.png"
+              :jumlah-menu="5"
+              nama="Warung Lalapan Bu Sum"
+            />
+          </SplideSlide>
         </Splide>
       </div>
     </template>
@@ -30,29 +36,37 @@
 </template>
 
 <script>
+import '@splidejs/splide/dist/css/splide.min.css';
+
 import {ref} from "vue";
+import { Splide, SplideSlide } from '@splidejs/vue-splide';
+import {useRupiah} from "@/helpers"
+
 import Base from "@/components/ui/Base";
 import InputSearch from "@/components/input/InputSearch";
-import { Splide, SplideSlide } from '@splidejs/vue-splide';
+import CardWarung from "@/views/siswa/components/CardWarung";
 
 export default {
-  name: "Home",
+  name: "HomeSiswa",
   components: {
     InputSearch,
     Base,
     Splide,
-    SplideSlide
+    SplideSlide,
+    CardWarung
   },
   setup(){
     const splideOpt = {
-      type   : 'loop',
+      type   : 'slide',
       drag   : 'free',
       perPage: 3,
       arrows: false,
-      pagination: false
+      pagination: true,
+      padding: { left: 10, right: 20 },
+      fixedWidth: "10rem"
     }
 
-    const namaUser = ref("Amanda")
+    const saldo = ref("55500")
     const search = ref("")
 
     function searching() {
@@ -61,9 +75,10 @@ export default {
 
     return {
       splideOpt,
-      namaUser,
+      saldo,
       search,
-      searching
+      searching,
+      useRupiah
     }
   }
 }

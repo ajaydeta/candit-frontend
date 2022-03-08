@@ -19,10 +19,10 @@
     </div>
   </div>
 
-  <LoginModal v-if="showLoginModal" @onClose="closeLoginModal"/>
+  <LoginModal v-if="showLoginModal" :login-function="login" @onClose="closeLoginModal"/>
 </template>
 <script>
-import LoginModal from "../auth/components/loginModal.vue";
+import LoginModal from "./components/LoginModal.vue";
 import {ref} from "vue";
 import {useLoginStore} from "@/store";
 
@@ -45,11 +45,19 @@ export default {
       showLoginModal.value = false
     }
 
+    function login() {
+      console.log(loginStore.username);
+      console.log(loginStore.password);
+
+      localStorage.setItem("role", loginStore.role)
+    }
+
     return {
       loginStore,
       showLoginModal,
       openLoginModal,
-      closeLoginModal
+      closeLoginModal,
+      login
     }
   }
 };

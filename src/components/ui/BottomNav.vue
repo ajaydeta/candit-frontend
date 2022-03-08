@@ -17,7 +17,7 @@
 
 <script>
 import {reactive, toRefs} from "vue";
-// import {useRouter} from "vue-router";
+import {useRouter} from "vue-router";
 
 export default {
   name: "BottomNav",
@@ -28,7 +28,8 @@ export default {
       history:false,
     })
 
-    // const router = useRouter();
+    const role = localStorage.getItem("role")
+    const router = useRouter();
 
     function toHome() {
       // eslint-disable-next-line no-empty
@@ -37,7 +38,7 @@ export default {
         navState.home = true
         navState.history = false
 
-        // router.push("/home")
+        router.push("/home-siswa")
       }
     }
 
@@ -64,6 +65,7 @@ export default {
     }
 
     return{
+      role,
       ...toRefs(navState),
       toHome,
       toProfile,

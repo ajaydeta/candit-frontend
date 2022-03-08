@@ -46,7 +46,7 @@ export default {
 
 <style scoped>
 input {
-  width: 400px;
+  width: 200px;
   /*border: none;*/
   /*outline: none;*/
   font-weight: 500;
