@@ -13,6 +13,7 @@
   --white: #ffffff;
   --black-transparent50: rgba(0, 0, 0, 0.5);
   --font-base: "Poppins";
+  --drop-shadow: 4px 5px 25px rgba(0, 0, 0, 0.06);
 }
 
 * {

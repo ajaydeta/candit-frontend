@@ -34,7 +34,7 @@ export default {
   height: 100%;
 
   background: var(--white);
-  box-shadow: 4px 5px 25px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--drop-shadow);
   border-radius: 20px;
 }
 

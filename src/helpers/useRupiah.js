@@ -10,5 +10,5 @@ export default function useRupiah(num) {
         .split("")
         .reverse()
         .join("");
-    return "Rp " + rupiahString;
+    return "Rp " + rupiahString + ",-";
 }
