@@ -19,26 +19,26 @@ export default {
     val: String,
     delay: {
       type: Number,
-      default: 300
+      default: 300,
     },
-    doSearching: Function
+    doSearching: Function,
   },
-  setup(props, {emit}) {
+  setup(props, { emit }) {
     const inputVal = ref("");
 
-    let timeOut = null
+    let timeOut = null;
     function doSearch(event) {
-      clearTimeout(timeOut)
+      clearTimeout(timeOut);
       timeOut = setTimeout(() => {
-        emit("update:val", event.target.value)
-        console.log(event.target.value)
-        props.doSearching()
-      }, props.delay)
+        emit("update:val", event.target.value);
+        console.log(event.target.value);
+        props.doSearching();
+      }, props.delay);
     }
-    
+
     return {
       inputVal,
-      doSearch
+      doSearch,
     };
   },
 };
@@ -46,11 +46,21 @@ export default {
 
 <style scoped>
 input {
-  width: 200px;
-  /*border: none;*/
-  /*outline: none;*/
-  font-weight: 500;
-  font-size: 16px;
-  transition: 0.8s;
+  margin: 5px auto;
+  width: 325px;
+  height: 40px;
+  left: 22px;
+  top: 97px;
+  border: 1px solid #374785;
+  box-sizing: border-box;
+  border-radius: 20px;
+
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  padding: 20px;
+
+  display: flex;
 }
 </style>
