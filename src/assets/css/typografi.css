@@ -98,3 +98,7 @@
 .font-white{
   color: var(--white);
 }
+
+.font-orange{
+  color: var(--secondary);
+}

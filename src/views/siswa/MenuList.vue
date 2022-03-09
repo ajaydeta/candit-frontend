@@ -82,7 +82,7 @@ export default {
   padding: 10px;
 
   background: #ffffff;
-  box-shadow: 4px 5px 25px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--drop-shadow);
   border-radius: 20px;
 }
 .header-menu-wrapper {
@@ -106,7 +106,7 @@ export default {
   margin: 10px auto;
   padding: 10px;
   background: #ffffff;
-  box-shadow: 4px 5px 25px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--drop-shadow);
   border-radius: 20px;
 }
 .box-title font {

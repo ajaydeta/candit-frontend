@@ -1,16 +1,22 @@
 <template>
 <div class="nav-bottom-container">
   <div @click="toProfile" class="nav-bottom-item">
-    <img v-if="profile" src="@/assets/icon/gg_profile-blue.svg" alt="profile">
-    <img v-else src="@/assets/icon/gg_profile.svg" alt="profile">
+    <Profile :is-blue="profile"/>
   </div>
   <div @click="toHome" class="nav-bottom-item">
-    <img v-if="home" src="@/assets/icon/home-blue.svg" alt="home">
-    <img v-else src="@/assets/icon/home.svg" alt="home">
+    <Home :is-blue="home"/>
   </div>
   <div @click="toHistory" class="nav-bottom-item">
-    <img v-if="history" src="@/assets/icon/history-blue.svg" alt="history">
-    <img v-else src="@/assets/icon/history.svg" alt="history">
+    <History :is-blue="history"/>
+  </div>
+  <div class="nav-bottom-item">
+    <DaftarPesanan/>
+  </div>
+  <div class="nav-bottom-item">
+    <MenuLapak/>
+  </div>
+  <div class="nav-bottom-item">
+    <Saldo/>
   </div>
 </div>
 </template>
@@ -18,9 +24,23 @@
 <script>
 import {reactive, toRefs} from "vue";
 import {useRouter} from "vue-router";
+import Profile from "@/components/icons/Profile";
+import Home from "@/components/icons/Home";
+import History from "@/components/icons/History";
+import MenuLapak from "@/components/icons/MenuLapak";
+import Saldo from "@/components/icons/Saldo";
+import DaftarPesanan from "@/components/icons/DaftarPesanan";
 
 export default {
   name: "BottomNav",
+  components: {
+    Profile,
+    Home,
+    History,
+    MenuLapak,
+    Saldo,
+    DaftarPesanan
+  },
   setup(){
     const navState = reactive({
       profile:false,
