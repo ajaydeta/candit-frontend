@@ -20,17 +20,22 @@
         <div class="menu-box">
           <div class="box-title">
             <p class="header3 dark-blue">Lalapan Tempe + Nasi</p>
-            <p class="description-menu dark-blue">Lorem mmmmmmmmmmmmm</p>
+            <p class="description-menu dark-blue">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
             <p class="price dark-blue">
               Rp 15.000
               <font class="discount">Rp 19.000</font>
-              <font class="button-discount title white">Diskon </font>
+              <font class="title blue">Diskon </font>
             </p>
+            <hr />
+            <p class="price">2 Porsi dipesan</p>
           </div>
-          <div class="header-image-wrapper">
+          <div class="box-image">
             <img src="@/assets/images/lapak/lapak.png" alt="avatar" />
           </div>
-          <div class="box-order">adscx</div>
+          <div class="box-order"></div>
         </div>
       </div>
     </template>
@@ -86,6 +91,7 @@ export default {
 .header-image-wrapper img {
   margin: 0%;
   /* padding: 10px; */
+  float: right;
   text-align: left;
   width: 81px;
   height: 77px;
@@ -95,8 +101,8 @@ export default {
   text-align: left;
 }
 .menu-box {
+  height: 100% auto;
   display: flex;
-  justify-content: space-between;
   margin: 10px auto;
   padding: 10px;
   background: #ffffff;
@@ -104,32 +110,35 @@ export default {
   border-radius: 20px;
 }
 .box-title font {
-  padding: 20px;
+  padding: 10px;
 }
 .button-discount {
-  width: 51px;
-  height: 15px;
-
-  /* orange */
-
-  background: #f76d6d;
+  margin-top: 20px;
+  width: 265px;
+  height: 40px;
+  left: 44px;
+  top: 399px;
+  background: #24305e;
+  border: 0px;
   border-radius: 20px;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 19px;
+  color: #ffffff;
 }
 
-.box-image {
-  width: 85px;
-  height: 83px;
-  left: 238px;
-  top: 143px;
-
-  border-radius: 20px;
+.box-image img {
+  margin: 0%;
+  width: 81px;
+  height: 77px;
+  float: right;
 }
-.menu-box .box-order {
-  width: 310px;
+.hr {
+  display: block;
+  border: none;
   height: 0px;
-  left: 22px;
-  top: 231px;
-  float: center;
   /* grey */
 
   border: 1px solid #d0d0d0;
