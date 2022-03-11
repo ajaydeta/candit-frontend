@@ -8,7 +8,7 @@
 
 .header2 {
   font-style: normal;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 14px;
   line-height: 21px;
   font-family: var(--font-base);
@@ -26,6 +26,14 @@
   font-style: normal;
   font-weight: 500;
   font-size: 11px;
+  line-height: 118%;
+  font-family: var(--font-base);
+}
+
+.header5 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
   line-height: 118%;
   font-family: var(--font-base);
 }
@@ -101,4 +109,8 @@
 
 .font-orange{
   color: var(--secondary);
+}
+
+.font-dark-blue {
+  color: var(--primary);
 }

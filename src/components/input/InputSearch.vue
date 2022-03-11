@@ -1,5 +1,6 @@
 <template>
   <input
+      class="w-100"
     type="text"
     :id="id"
     :placeholder="placeholder"
@@ -45,22 +46,5 @@ export default {
 </script>
 
 <style scoped>
-input {
-  margin: 5px auto;
-  width: 325px;
-  height: 40px;
-  left: 22px;
-  top: 97px;
-  border: 1px solid #374785;
-  box-sizing: border-box;
-  border-radius: 20px;
 
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 13px;
-  padding: 20px;
-
-  display: flex;
-}
 </style>

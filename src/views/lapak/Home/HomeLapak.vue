@@ -15,7 +15,7 @@
       <CardHome
         title="Daftar Pesanan"
         subtitle="3 Pesanan baru • 5 Belum diambil"
-        @onClick="cardAction"
+        @onClick="toDaftarPesanan"
       />
       <CardHome
           title="Kelola Menu dan Diskon"
@@ -36,8 +36,10 @@
 </template>
 
 <script>
+import {useRouter} from "vue-router";
+
 import Base from "@/components/ui/Base";
-import CardHome from "@/views/lapak/components/CardHome";
+import CardHome from "@/views/lapak/Home/components/CardHome";
 
 export default {
   name: "HomeLapak",
@@ -46,11 +48,18 @@ export default {
     Base
   },
   setup() {
+    const router = useRouter();
+
     function cardAction(){
       console.log('clookk')
     }
+
+    function toDaftarPesanan() {
+      router.push("/lapak/daftar_pesanan")
+    }
     return {
-      cardAction
+      cardAction,
+      toDaftarPesanan
     }
   }
 }
