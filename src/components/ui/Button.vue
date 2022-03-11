@@ -1,5 +1,10 @@
 <template>
-  <button type="button" :id="id" @click="action">
+  <button
+      :class="css"
+      type="button"
+      :id="id"
+      @click="action"
+  >
     {{ placeholder }}
   </button>
 </template>
@@ -10,33 +15,70 @@ export default {
   props: {
     id: String,
     placeholder: String,
+    long: Boolean,
+    btnStyle: {
+      type: String,
+      default: "primary"
+    },
+    p: {
+      type: String,
+      default: "lg"
+    }
   },
-  setup(props, { emit }) {
+  setup(props, {emit}) {
+    let css = "";
+    let cssClass = [];
+
+    cssClass.push("btn-padding-" + props.p)
+
+    if (props.long) {
+      cssClass.push('w-100')
+    }
+
+    switch (props.btnStyle) {
+      case "primary":
+        cssClass.push(...['bg-primary', 'font-white']);
+        break;
+      case "outline-primary":
+        cssClass.push(...['bg-transparent', 'font-primary', 'btn-border']);
+        break;
+    }
+
+    css = cssClass.join(" ");
+
     function action(payload) {
       emit("action", payload);
     }
+
     return {
       action,
+      css
     };
-  },
+  }
+
 };
 </script>
 
 <style scoped>
 button {
-  margin-top: 20px;
-  width: 265px;
-  height: 40px;
-  left: 44px;
-  top: 399px;
-  background: #24305e;
-  border: 0px;
   border-radius: 20px;
+  border: none;
 
   font-style: normal;
   font-weight: bold;
   font-size: 13px;
   line-height: 19px;
-  color: #ffffff;
+}
+
+.btn-border {
+  border: 2px solid var(--primary);
+}
+
+.btn-padding-lg {
+  padding: 8px 16px;
+}
+
+.btn-padding-sm {
+  padding: 4px 16px;
 }
 </style>

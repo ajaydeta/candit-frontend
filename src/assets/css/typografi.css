@@ -30,6 +30,14 @@
   font-family: var(--font-base);
 }
 
+.header5 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 118%;
+  font-family: var(--font-base);
+}
+
 .placeholder {
   font-style: normal;
   font-weight: normal;
@@ -101,4 +109,8 @@
 
 .font-orange{
   color: var(--secondary);
+}
+
+.font-dark-blue {
+  color: var(--primary);
 }

@@ -7,18 +7,25 @@
       </div>
       <form class="form">
         <InputGeneral
-          id="user"
-          placeholder="Nama pengguna"
-          v-model:val="loginStore.username"
-          :val="username"
+            id="user"
+            placeholder="Nama pengguna"
+            v-model:val="loginStore.username"
+            :val="username"
         />
         <InputPassword
-          id="password"
-          placeholder="Password"
-          v-model:val="loginStore.password"
-          :val="password"
+            class="mt-8px"
+            id="password"
+            placeholder="Password"
+            v-model:val="loginStore.password"
+            :val="password"
         />
-        <Button id="submit" placeholder="Masuk" @action="loginFunction()" />
+        <Button
+            class="mt-28px"
+            id="submit"
+            placeholder="Masuk"
+            :long="true"
+            @action="loginFunction()"
+        />
         <div class="placeholder">Belum punya akun?</div>
         <div class="titleButton1">Daftar</div>
       </form>
@@ -27,11 +34,11 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import {ref} from "vue";
 import InputGeneral from "@/components/input/InputGeneral";
 import Button from "@/components/ui/Button";
 import InputPassword from "@/components/input/InputPassword";
-import { useLoginStore } from "@/store/loginStore";
+import {useLoginStore} from "@/store/loginStore";
 
 export default {
   name: "LoginModal",
@@ -40,7 +47,7 @@ export default {
     InputGeneral,
     Button,
   },
-  props:{
+  props: {
     loginFunction: Function
   },
   setup() {

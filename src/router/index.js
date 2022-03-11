@@ -7,7 +7,6 @@ import LapakRoutes from "@/router/lapakRoutes";
 const routes = [
     ...AuthRoutes,
     SiswaRoutes,
-    LapakRoutes,
   {
     path: "/MenuList",
     name: "Menulist",
@@ -19,5 +18,7 @@ const router = createRouter({
     history: createWebHistory(),
     routes,
 });
+
+router.addRoute(LapakRoutes)
 
 export default router;
