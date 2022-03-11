@@ -27,14 +27,22 @@
             <p class="price dark-blue">
               Rp 15.000
               <font class="discount">Rp 19.000</font>
-              <button class="discount-button" type="button">DISKON</button>
+              <ButtonDiskon
+                id="submit"
+                placeholder="DISKON"
+                @action="loginFunction()"
+              />
             </p>
           </div>
           <div class="box-image">
             <img src="@/assets/images/lapak/lapak.png" alt="avatar" />
 
             <p class="title dark-blue">2 Porsi dipesan</p>
-            <button type="button">Pesan</button>
+            <ButtonConfirm
+              id="submit"
+              placeholder="PESAN"
+              @action="loginFunction()"
+            />
           </div>
         </div>
       </div>
@@ -44,10 +52,14 @@
 <script>
 import { ref } from "vue";
 import Base from "@/components/ui/Base";
+import ButtonDiskon from "@/views/siswa/components/ButtonDiskon";
+import ButtonConfirm from "@/views/siswa/components/ButtonConfirm";
 export default {
   name: "MenuList",
   components: {
     Base,
+    ButtonDiskon,
+    ButtonConfirm,
   },
   setup() {
     const splideOpt = {
