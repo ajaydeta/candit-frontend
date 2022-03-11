@@ -27,15 +27,23 @@
             <p class="price dark-blue">
               Rp 15.000
               <font class="discount">Rp 19.000</font>
-              <font class="title blue">Diskon </font>
+              <ButtonDiskon
+                id="submit"
+                placeholder="DISKON"
+                @action="loginFunction()"
+              />
             </p>
-            <hr />
-            <p class="price">2 Porsi dipesan</p>
           </div>
           <div class="box-image">
             <img src="@/assets/images/lapak/lapak.png" alt="avatar" />
+
+            <p class="title dark-blue">2 Porsi dipesan</p>
+            <ButtonConfirm
+              id="submit"
+              placeholder="PESAN"
+              @action="loginFunction()"
+            />
           </div>
-          <div class="box-order"></div>
         </div>
       </div>
     </template>
@@ -44,10 +52,14 @@
 <script>
 import { ref } from "vue";
 import Base from "@/components/ui/Base";
+import ButtonDiskon from "@/views/siswa/components/ButtonDiskon";
+import ButtonConfirm from "@/views/siswa/components/ButtonConfirm";
 export default {
   name: "MenuList",
   components: {
     Base,
+    ButtonDiskon,
+    ButtonConfirm,
   },
   setup() {
     const splideOpt = {
@@ -100,6 +112,10 @@ export default {
 .menu-content {
   text-align: left;
 }
+.box-title p font {
+  padding-top: 10px;
+  padding-left: 8px;
+}
 .menu-box {
   height: 100% auto;
   display: flex;
@@ -109,38 +125,72 @@ export default {
   box-shadow: var(--drop-shadow);
   border-radius: 20px;
 }
-.box-title font {
-  padding: 10px;
-}
-.button-discount {
-  margin-top: 20px;
-  width: 265px;
-  height: 40px;
-  left: 44px;
-  top: 399px;
-  background: #24305e;
-  border: 0px;
-  border-radius: 20px;
-
-  font-style: normal;
-  font-weight: bold;
-  font-size: 13px;
-  line-height: 19px;
-  color: #ffffff;
-}
-
 .box-image img {
+  padding-bottom: 10px;
   margin: 0%;
   width: 81px;
   height: 77px;
   float: right;
 }
+.box-order {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 300px;
+  height: 26px;
+}
+
 .hr {
-  display: block;
-  border: none;
+  margin: 10px;
+  width: 10px;
   height: 0px;
+
   /* grey */
 
   border: 1px solid #d0d0d0;
+}
+button {
+  width: 85px;
+  height: 22px;
+  left: 237px;
+  top: 236px;
+
+  /* dark-blue */
+  background: #ffffff;
+  border: 1px solid #24305e;
+  box-sizing: border-box;
+  border-radius: 20px;
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 118%;
+  /* identical to box height, or 13px */
+
+  /* dark-blue */
+
+  color: #24305e;
+}
+.discount-button {
+  margin-left: 15px;
+  width: 80px;
+  height: 20px;
+  left: 237px;
+  top: 236px;
+
+  /* dark-blue */
+  background: #f76d6d;
+  border: none;
+  box-sizing: border-box;
+  border-radius: 20px;
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 118%;
+  /* identical to box height, or 13px */
+
+  /* dark-blue */
+
+  color: #ffffff;
 }
 </style>
