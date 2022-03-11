@@ -20,30 +20,17 @@
             <p class="quantity dark-blue">2 Porsi</p>
             <p class="header4 dark-blue">Sambal tidak pedas</p>
             <Button
-                id="submit"
-                placeholder="Hapus"
-                btn-style="outline-danger"
-                p="sm"
-            />
-            <ButtonDanger
               id="submit"
               placeholder="Hapus"
-              @action="loginFunction()"
+              btn-style="outline-danger"
+              p="sm"
             />
           </div>
         </div>
       </div>
       <div class="payment">
-        <div class="total">
-          <p class="price">
-            Total Pembayaran : Rp 30.000
-            <ButtonConfirm
-              id="submit"
-              placeholder="Bayar"
-              @action="loginFunction()"
-            />
-          </p>
-        </div>
+        <p class="price">Total Pembayaran : Rp 30.000</p>
+        <Button id="submit" placeholder="Bayar" @action="loginFunction()" />
       </div>
     </template>
   </Base>
@@ -51,16 +38,12 @@
 <script>
 import { ref } from "vue";
 import Base from "@/components/ui/Base";
-import ButtonDanger from "@/views/siswa/components/ButtonDanger";
-import ButtonConfirm from "@/views/siswa/components/ButtonConfirm";
 import Button from "@/components/ui/Button";
 export default {
   name: "DetailOrder",
   components: {
     Button,
     Base,
-    ButtonDanger,
-    ButtonConfirm,
   },
   setup() {
     const splideOpt = {
@@ -125,6 +108,10 @@ export default {
 }
 .payment {
   margin-top: 30px;
-  text-align: left;
+  margin-left: 30px;
+  float: right;
+}
+Button {
+  float: right;
 }
 </style>

@@ -1,88 +1,92 @@
 @font-face {
-    font-family: "Poppins";
-    src: url("../font/Poppins-Regular.ttf");
+  font-family: "Poppins";
+  src: url("../font/Poppins-Regular.ttf");
 }
 
 :root {
-    --primary: #24305e;
-    --secondary: #f76d6d;
-    --dark-blue: #374785;
-    --tosca: #a8d1e7;
-    --yellow: #f7e9a0;
-    --gray: #d0d0d0;
-    --white: #ffffff;
-    --black-transparent50: rgba(0, 0, 0, 0.5);
-    --font-base: "Poppins";
-    --drop-shadow: 4px 5px 25px rgba(0, 0, 0, 0.06);
+  --primary: #24305e;
+  --secondary: #f76d6d;
+  --dark-blue: #374785;
+  --tosca: #a8d1e7;
+  --yellow: #f7e9a0;
+  --gray: #d0d0d0;
+  --white: #ffffff;
+  --black-transparent50: rgba(0, 0, 0, 0.5);
+  --font-base: "Poppins";
+  --drop-shadow: 4px 5px 25px rgba(0, 0, 0, 0.06);
 }
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .dark-blue {
-    color: var(--dark-blue);
+  color: var(--dark-blue);
 }
 
 .blue {
-    color: var(--primary);
+  color: var(--primary);
 }
 
 .grey {
-    color: var(--gray);
+  color: var(--gray);
 }
 
 .orange {
-    color: var(--secondary);
+  color: var(--secondary);
 }
 
 .white {
-    color: var(--white);
+  color: var(--white);
 }
 
 .form {
-    margin: 30px auto;
+  margin: 30px auto;
 }
 
 .mt-4px {
-    margin-top: 4px;
+  margin-top: 4px;
 }
 
 .mt-6px {
-    margin-top: 6px;
+  margin-top: 6px;
 }
 
 .mt-8px {
-    margin-top: 8px;
+  margin-top: 8px;
 }
 
 .mt-28px {
-    margin-top: 28px;
+  margin-top: 28px;
 }
 
 .w-100 {
-    width: 100%;
+  width: 100%;
 }
 
 input {
-    padding: 8px 24px;
-    border: 1px solid #374785;
-    box-sizing: border-box;
-    border-radius: 20px;
+  padding: 8px 24px;
+  border: 1px solid #374785;
+  box-sizing: border-box;
+  border-radius: 20px;
 
-    font-family: var(--font-base);
-    font-style: normal;
-    font-weight: normal;
-    font-size: 13px;
+  font-family: var(--font-base);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
 
-    display: flex;
+  display: flex;
 }
 
 .bg-primary {
-    background-color: var(--primary);
+  background-color: var(--primary);
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
 }
 
 .bg-transparent {
-    background-color: transparent;
+  background-color: transparent;
 }

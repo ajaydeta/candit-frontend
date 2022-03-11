@@ -21,7 +21,7 @@
       {{ search }}
 
       <div class="content-box-title">
-        <p class="header3 dark-blue">14 Warung di sekolahmu. Buruan order!</p>
+        <p class="header3 dark-blue">Belum Diambil</p>
       </div>
       <div class="box-ordered">
         <div class="order-title">
@@ -31,8 +31,28 @@
         </div>
         <div class="order-info">
           <p class="header3 grey">Id Transaksi</p>
+          <p class="header3 grey">20/01/2021, 12.12</p>
+          <Button
+            id="submit"
+            placeholder="AMBIL"
+            btn-style="outline-primary"
+            p="sm"
+            @action="loginFunction()"
+          />
+        </div>
+      </div>
+      <div class="content-box-title">
+        <p class="header3 dark-blue">Sudah Diambil</p>
+      </div>
+      <div class="box-ordered">
+        <div class="order-title">
           <p class="header3 dark-blue">Lapak Bu Sri</p>
-          <p class="header3 dark-blue">Lapak Bu Sri</p>
+          <p class="quantity dark-blue">2 Porsi</p>
+          <p class="header4 dark-blue">Siap Diambil</p>
+        </div>
+        <div class="order-info">
+          <p class="header3 grey">Id Transaksi</p>
+          <p class="header3 grey">20/01/2021, 12.12</p>
         </div>
       </div>
     </template>
@@ -45,6 +65,7 @@ import "@splidejs/splide/dist/css/splide.min.css";
 import { useRupiah } from "@/helpers";
 
 import Base from "@/components/ui/Base";
+import Button from "@/components/ui/Button";
 import InputSearch from "@/components/input/InputSearch";
 
 export default {
@@ -52,6 +73,7 @@ export default {
   components: {
     InputSearch,
     Base,
+    Button,
   },
   setup() {
     function searching() {
@@ -61,6 +83,7 @@ export default {
     return {
       searching,
       useRupiah,
+      Button,
     };
   },
 };
@@ -69,7 +92,6 @@ export default {
 <style scoped>
 .header-home-container {
   display: flex;
-  justify-content: space-between;
 }
 .header-image img {
   padding: 10px;
@@ -78,6 +100,8 @@ export default {
 .header-text {
   padding: 10px;
   text-align: left;
+  align-items: center;
+  display: flex;
 }
 .content-box-title {
   text-align: left;
@@ -85,6 +109,8 @@ export default {
 }
 .box-ordered {
   display: flex;
+  justify-content: space-between;
+
   margin-top: 5px;
   text-align: left;
   width: 312px;

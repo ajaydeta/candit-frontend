@@ -1,10 +1,5 @@
 <template>
-  <button
-      :class="css"
-      type="button"
-      :id="id"
-      @click="action"
-  >
+  <button :class="css" type="button" :id="id" @click="action">
     {{ placeholder }}
   </button>
 </template>
@@ -18,32 +13,39 @@ export default {
     long: Boolean,
     btnStyle: {
       type: String,
-      default: "primary"
+      default: "primary",
     },
     p: {
       type: String,
-      default: "lg"
-    }
+      default: "lg",
+    },
   },
-  setup(props, {emit}) {
+  setup(props, { emit }) {
     let css = "";
     let cssClass = [];
 
-    cssClass.push("btn-padding-" + props.p)
+    cssClass.push("btn-padding-" + props.p);
 
     if (props.long) {
-      cssClass.push('w-100')
+      cssClass.push("w-100");
     }
 
     switch (props.btnStyle) {
       case "primary":
-        cssClass.push(...['bg-primary', 'font-white']);
+        cssClass.push(...["bg-primary", "font-white"]);
+        break;
+      case "orange":
+        cssClass.push(...["bg-secondary", "font-white"]);
         break;
       case "outline-primary":
-        cssClass.push(...['bg-transparent', 'font-primary', 'btn-border-primary']);
+        cssClass.push(
+          ...["bg-transparent", "font-dark-blue", "btn-border-primary"]
+        );
         break;
       case "outline-danger":
-        cssClass.push(...['bg-transparent', 'font-orange', 'btn-border-orange']);
+        cssClass.push(
+          ...["bg-transparent", "font-orange", "btn-border-orange"]
+        );
         break;
     }
 
@@ -55,10 +57,9 @@ export default {
 
     return {
       action,
-      css
+      css,
     };
-  }
-
+  },
 };
 </script>
 
@@ -78,7 +79,7 @@ button {
 }
 
 .btn-border-orange {
-  border: 2px solid var(--secondary);
+  border: 1px solid var(--secondary);
 }
 
 .btn-padding-lg {

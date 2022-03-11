@@ -27,9 +27,11 @@
             <p class="price dark-blue">
               Rp 15.000
               <font class="discount">Rp 19.000</font>
-              <ButtonDiskon
+              <Button
                 id="submit"
                 placeholder="DISKON"
+                btn-style="orange"
+                p="sm"
                 @action="loginFunction()"
               />
             </p>
@@ -38,11 +40,7 @@
             <img src="@/assets/images/lapak/lapak.png" alt="avatar" />
 
             <p class="title dark-blue">2 Porsi dipesan</p>
-            <ButtonConfirm
-              id="submit"
-              placeholder="PESAN"
-              @action="loginFunction()"
-            />
+            <Button id="submit" placeholder="PESAN" @action="loginFunction()" />
           </div>
         </div>
       </div>
@@ -52,14 +50,12 @@
 <script>
 import { ref } from "vue";
 import Base from "@/components/ui/Base";
-import ButtonDiskon from "@/views/siswa/components/ButtonDiskon";
-import ButtonConfirm from "@/views/siswa/components/ButtonConfirm";
+import Button from "@/components/ui/Button";
 export default {
   name: "MenuList",
   components: {
     Base,
-    ButtonDiskon,
-    ButtonConfirm,
+    Button,
   },
   setup() {
     const splideOpt = {
@@ -137,60 +133,5 @@ export default {
   margin-bottom: 15px;
   width: 300px;
   height: 26px;
-}
-
-.hr {
-  margin: 10px;
-  width: 10px;
-  height: 0px;
-
-  /* grey */
-
-  border: 1px solid #d0d0d0;
-}
-button {
-  width: 85px;
-  height: 22px;
-  left: 237px;
-  top: 236px;
-
-  /* dark-blue */
-  background: #ffffff;
-  border: 1px solid #24305e;
-  box-sizing: border-box;
-  border-radius: 20px;
-
-  font-style: normal;
-  font-weight: 600;
-  font-size: 11px;
-  line-height: 118%;
-  /* identical to box height, or 13px */
-
-  /* dark-blue */
-
-  color: #24305e;
-}
-.discount-button {
-  margin-left: 15px;
-  width: 80px;
-  height: 20px;
-  left: 237px;
-  top: 236px;
-
-  /* dark-blue */
-  background: #f76d6d;
-  border: none;
-  box-sizing: border-box;
-  border-radius: 20px;
-
-  font-style: normal;
-  font-weight: 600;
-  font-size: 11px;
-  line-height: 118%;
-  /* identical to box height, or 13px */
-
-  /* dark-blue */
-
-  color: #ffffff;
 }
 </style>

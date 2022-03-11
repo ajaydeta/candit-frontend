@@ -103,11 +103,11 @@
   font-family: var(--font-base);
 }
 
-.font-white{
+.font-white {
   color: var(--white);
 }
 
-.font-orange{
+.font-orange {
   color: var(--secondary);
 }
 
