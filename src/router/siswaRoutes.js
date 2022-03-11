@@ -3,6 +3,7 @@ import HomeSiswa from "@/views/siswa/HomeSiswa";
 import MenuList from "@/views/siswa/MenuList";
 import DetailOrder from "@/views/siswa/DetailOrder";
 import HistoryOrder from "@/views/siswa/HistoryOrder";
+import HistorySaldo from "@/views/siswa/HistorySaldo";
 
 export default {
   path: "/siswa",
@@ -40,6 +41,11 @@ export default {
           path: "",
           component: HistoryOrder,
           name: "HistoryOrder",
+        },
+        {
+          path: "saldo",
+          component: HistorySaldo,
+          name: "HistorySaldo",
         },
       ],
     },
