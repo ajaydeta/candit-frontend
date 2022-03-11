@@ -19,6 +19,12 @@
             </p>
             <p class="quantity dark-blue">2 Porsi</p>
             <p class="header4 dark-blue">Sambal tidak pedas</p>
+            <Button
+                id="submit"
+                placeholder="Hapus"
+                btn-style="outline-danger"
+                p="sm"
+            />
             <ButtonDanger
               id="submit"
               placeholder="Hapus"
@@ -47,9 +53,11 @@ import { ref } from "vue";
 import Base from "@/components/ui/Base";
 import ButtonDanger from "@/views/siswa/components/ButtonDanger";
 import ButtonConfirm from "@/views/siswa/components/ButtonConfirm";
+import Button from "@/components/ui/Button";
 export default {
   name: "DetailOrder",
   components: {
+    Button,
     Base,
     ButtonDanger,
     ButtonConfirm,

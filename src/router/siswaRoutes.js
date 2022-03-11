@@ -19,7 +19,7 @@ export default {
             name: 'Order',
             children: [
                 {
-                    path: "menu-list",
+                    path: "",
                     component: MenuList,
                     name: 'MenuList',
                 },

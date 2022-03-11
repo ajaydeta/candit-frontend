@@ -40,7 +40,10 @@ export default {
         cssClass.push(...['bg-primary', 'font-white']);
         break;
       case "outline-primary":
-        cssClass.push(...['bg-transparent', 'font-primary', 'btn-border']);
+        cssClass.push(...['bg-transparent', 'font-primary', 'btn-border-primary']);
+        break;
+      case "outline-danger":
+        cssClass.push(...['bg-transparent', 'font-orange', 'btn-border-orange']);
         break;
     }
 
@@ -70,8 +73,12 @@ button {
   line-height: 19px;
 }
 
-.btn-border {
+.btn-border-primary {
   border: 2px solid var(--primary);
+}
+
+.btn-border-orange {
+  border: 2px solid var(--secondary);
 }
 
 .btn-padding-lg {
