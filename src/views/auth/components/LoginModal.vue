@@ -13,15 +13,22 @@
           :val="username"
         />
         <InputPassword
+          class="mt-8px"
           id="password"
           placeholder="Password"
           v-model:val="loginStore.password"
           :val="password"
         />
-        <Button id="submit" placeholder="Masuk" @action="loginFunction()" />
-        <template v-if="loginStore.role == 'siswa'">
+        <Button
+          class="mt-28px"
+          id="submit"
+          placeholder="Masuk"
+          :long="true"
+          @action="loginFunction()"
+        />
+        <template v-if="loginStore.role === 'siswa'">
           <div class="placeholder">Belum punya akun?</div>
-          <div class="titleButton1" @click="$emit('onDaftar')">Daftar</div>
+          <div class="titleButton1">Daftar</div>
         </template>
       </form>
     </div>

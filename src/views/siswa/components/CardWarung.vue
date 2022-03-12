@@ -2,16 +2,14 @@
   <div class="content-box-content">
     <div class="image-box">
       <div class="image-content">
-        <img src="@/assets/images/lapak/lapak.png" alt="avatar"/>
+        <img src="@/assets/images/lapak/lapak.png" alt="avatar" />
       </div>
     </div>
     <div class="image-title">
       <p class="header3 dark-blue">{{ nama }}</p>
     </div>
     <div class="badge">
-      <div class="title font-white">
-        {{ jumlahMenu }} Menu
-      </div>
+      <div class="title font-white">{{ jumlahMenu }} Menu</div>
     </div>
   </div>
 </template>
@@ -22,9 +20,9 @@ export default {
   props: {
     imgSrc: String,
     nama: String,
-    jumlahMenu: Number
-  }
-}
+    jumlahMenu: Number,
+  },
+};
 </script>
 
 <style scoped>

@@ -44,3 +44,49 @@
 .form {
   margin: 30px auto;
 }
+
+.mt-4px {
+  margin-top: 4px;
+}
+
+.mt-6px {
+  margin-top: 6px;
+}
+
+.mt-8px {
+  margin-top: 8px;
+}
+
+.mt-28px {
+  margin-top: 28px;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+input {
+  padding: 8px 24px;
+  border: 1px solid #374785;
+  box-sizing: border-box;
+  border-radius: 20px;
+
+  font-family: var(--font-base);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+
+  display: flex;
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
+}
+
+.bg-transparent {
+  background-color: transparent;
+}
