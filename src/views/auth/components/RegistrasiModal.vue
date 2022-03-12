@@ -17,11 +17,12 @@
   </div>
 </template>
 <script>
-import { reactive, ref, toRefs } from "vue";
+import { reactive, ref } from "vue";
 import InputGeneral from "@/components/input/InputGeneral";
 import Button from "@/components/ui/Button";
 
 export default {
+  name: "RegistrasiModal",
   components: {
     InputGeneral,
     Button,

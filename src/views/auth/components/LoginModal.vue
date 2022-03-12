@@ -19,8 +19,10 @@
           :val="password"
         />
         <Button id="submit" placeholder="Masuk" @action="loginFunction()" />
-        <div class="placeholder">Belum punya akun?</div>
-        <div class="titleButton1">Daftar</div>
+        <template v-if="loginStore.role == 'siswa'">
+          <div class="placeholder">Belum punya akun?</div>
+          <div class="titleButton1" @click="$emit('onDaftar')">Daftar</div>
+        </template>
       </form>
     </div>
   </div>
@@ -40,13 +42,12 @@ export default {
     InputGeneral,
     Button,
   },
-  props:{
-    loginFunction: Function
+  props: {
+    loginFunction: Function,
   },
   setup() {
-
-    const username = ref("")
-    const password = ref("")
+    const username = ref("");
+    const password = ref("");
 
     const loginStore = useLoginStore();
 
