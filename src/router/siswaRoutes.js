@@ -4,6 +4,7 @@ import MenuList from "@/views/siswa/MenuList";
 import DetailOrder from "@/views/siswa/DetailOrder";
 import HistoryOrder from "@/views/siswa/HistoryOrder";
 import HistorySaldo from "@/views/siswa/HistorySaldo";
+import Profil from "@/views/siswa/Profil";
 
 export default {
   path: "/siswa",
@@ -38,7 +39,7 @@ export default {
       name: "Riwayat",
       children: [
         {
-          path: "",
+          path: "order",
           component: HistoryOrder,
           name: "HistoryOrder",
         },
@@ -48,6 +49,11 @@ export default {
           name: "HistorySaldo",
         },
       ],
+    },
+    {
+      path: "profil",
+      component: Profil,
+      name: "Profil",
     },
   ],
 };

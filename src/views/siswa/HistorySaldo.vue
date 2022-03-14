@@ -26,14 +26,23 @@
       <div class="box-ordered">
         <div class="order-title">
           <p class="header3 dark-blue">Lapak Bu Sri</p>
-          <p class="quantity dark-blue">2 Porsi</p>
-          <p class="header4 dark-blue">Siap Diambil</p>
+          <p class="header3 grey">22/10/2020, 12.12</p>
         </div>
         <div class="order-info">
-          <p class="header3 grey">Id Transaksi</p>
-          <p class="header3 grey">20/01/2021, 12.12</p>
+          <p class="price orange">- Rp 30.000</p>
         </div>
       </div>
+      <hr />
+      <div class="box-ordered">
+        <div class="order-title">
+          <p class="header3 dark-blue">Lapak Bu Sri</p>
+          <p class="header3 grey">22/10/2020, 12.12</p>
+        </div>
+        <div class="order-info">
+          <p class="price">- Rp 30.000</p>
+        </div>
+      </div>
+      <hr />
     </template>
   </Base>
 </template>
