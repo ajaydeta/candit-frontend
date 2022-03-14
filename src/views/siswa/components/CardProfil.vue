@@ -27,7 +27,7 @@ export default {
 
   background: var(--white);
   box-shadow: var(--drop-shadow);
-  border-radius: 50px;
+  border-radius: 20px;
 }
 .image-content img {
   width: 40%;
