@@ -30,10 +30,12 @@
 <script>
 import LoginModal from "./components/LoginModal.vue";
 import RegistrasiModal from "./components/RegistrasiModal.vue";
-import { onMounted, ref } from "vue";
-import { useLoginStore } from "@/store";
-import db from "@/config/firestore";
-import { collection, getDocs } from "firebase/firestore/lite";
+import { ref, onMounted } from "vue";
+import { useAuthStore } from "@/store";
+// import { useToast } from "@/helpers";
+// import db from "@/config/firestore";
+// import { collection, getDocs } from "firebase/firestore/lite";
+// import {Registrasi} from '@/controller/auth'
 
 export default {
   name: "Login",
@@ -42,39 +44,40 @@ export default {
     RegistrasiModal,
   },
   setup() {
-    const loginStore = useLoginStore();
+    const store = useAuthStore();
     const showLoginModal = ref(false);
     const showRegistModal = ref(true);
 
     function openLoginModal(role) {
-      loginStore.role = role;
+      store.role = role;
       showLoginModal.value = true;
     }
 
     function closeLoginModal() {
-      loginStore.$reset();
+      store.$reset();
       showLoginModal.value = false;
     }
 
     function login() {
-      console.log(loginStore.username);
-      console.log(loginStore.password);
+      console.log(store.username);
+      console.log(store.password);
 
-      localStorage.setItem("role", loginStore.role);
+      localStorage.setItem("role", store.role);
     }
 
-    async function getCities(db) {
-      const citiesCol = collection(db, "user");
-      const citySnapshot = await getDocs(citiesCol);
-      return citySnapshot.docs.map((doc) => doc.data());
-    }
+    // async function getCities(db) {
+    //   const citiesCol = collection(db, "user");
+    //   const citySnapshot = await getDocs(citiesCol);
+    //   return citySnapshot.docs.map((doc) => doc.data());
+    // }
 
-    onMounted(async () => {
-      console.log(await getCities(db));
+    onMounted(() => {
+      // useToast('hokk')
+      // console.log(this.$moshaToast('Hmm..not as easy huh'))
     });
 
     return {
-      loginStore,
+      store,
       showLoginModal,
       openLoginModal,
       closeLoginModal,

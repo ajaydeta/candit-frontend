@@ -1,5 +1,5 @@
-import {useLoginStore} from "@/store/loginStore";
+import {useAuthStore} from "@/store/useAuthStore";
 
 export {
-    useLoginStore,
+    useAuthStore,
 }

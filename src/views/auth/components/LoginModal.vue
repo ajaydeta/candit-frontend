@@ -40,7 +40,7 @@ import { ref } from "vue";
 import InputGeneral from "@/components/input/InputGeneral";
 import Button from "@/components/ui/Button";
 import InputPassword from "@/components/input/InputPassword";
-import { useLoginStore } from "@/store/loginStore";
+import { useAuthStore } from "@/store/useAuthStore";
 
 export default {
   name: "LoginModal",
@@ -56,7 +56,7 @@ export default {
     const username = ref("");
     const password = ref("");
 
-    const loginStore = useLoginStore();
+    const loginStore = useAuthStore();
 
     return {
       username,
