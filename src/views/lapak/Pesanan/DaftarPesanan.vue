@@ -7,18 +7,33 @@
       />
     </template>
     <template #content>
-      <InputSelect/>
-      <CardPesanan
-          v-for="pembelian in pembelianStore.dataList"
-          :key='pembelian.idpembelian'
+      <div class="action-page-wrapper mt-12px">
+        <InputSearch
+            class="mr-8px"
+            id="search"
+            placeholder="Cari Nomor Nota"
+            :val="search"
+            :do-searching="searching"
+            v-model:val="search"
+        />
 
-          :title="pembelian.idpembelian"
-          :description1="pembelianStore.getStatusPembelian(pembelian.idpembelian)"
-          :description2="'Dibuat: ' + useFormatDate(pembelian.waktu)"
-          :use-action="true"
-          :badge="pembelian.jumlahMenu + ' Menu'"
-          @onAction="action"
-      />
+        <FilterPesananDropdown
+            @onSelect="filterSelect"
+        />
+      </div>
+      <div class="mt-28px">
+        <CardPesanan
+            v-for="pembelian in pembelianStore.dataList"
+            :key='pembelian.idpembelian'
+
+            :title="pembelian.idpembelian"
+            :description1="pembelianStore.getStatusPembelian(pembelian.idpembelian)"
+            :description2="'Dibuat: ' + useFormatDate(pembelian.waktu)"
+            :use-action="true"
+            :badge="pembelian.jumlahMenu + ' Menu'"
+            @onAction="action"
+        />
+      </div>
     </template>
   </Base>
 </template>
@@ -27,21 +42,26 @@
 import Base from "@/components/ui/Base";
 import CardHeader from "@/components/ui/CardHeader";
 import CardPesanan from "@/views/lapak/Pesanan/components/CardPesanan";
-import InputSelect from "@/components/input/InputSelect";
+
+
 import {useRouter} from "vue-router";
 import {useFormatDate} from "@/helpers"
 import {usePembelianStore} from "@/store"
+import InputSearch from "@/components/input/InputSearch";
+import {ref} from "vue";
+import FilterPesananDropdown from "@/views/lapak/Pesanan/components/FilterPesananDropdown";
 
 export default {
   name: "DaftarPesanan",
   components: {
-    InputSelect,
+    FilterPesananDropdown,
+    InputSearch,
     CardPesanan,
     Base,
     CardHeader
   },
   methods: {
-    getStatusPembelian(idpembelian){
+    getStatusPembelian(idpembelian) {
       return this.pembelianStore.getStatusPembelian(idpembelian);
     }
   },
@@ -92,15 +112,32 @@ export default {
       })
     }
 
+    const search = ref("")
+
+    function searching() {
+      console.log("hohohoho");
+    }
+
+    function filterSelect(val) {
+      console.log(val)
+    }
+
     return {
       action,
       pembelianStore,
-      useFormatDate
+      useFormatDate,
+      search,
+      searching,
+      filterSelect
     }
   }
 }
 </script>
 
 <style scoped>
-
+.action-page-wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
 </style>

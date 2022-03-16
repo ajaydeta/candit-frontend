@@ -1,22 +1,28 @@
 <template>
 <div class="nav-bottom-container">
-  <div @click="toProfile" class="nav-bottom-item">
-    <Profile :is-blue="profile"/>
-  </div>
-  <div @click="toHome" class="nav-bottom-item">
-    <Home :is-blue="home"/>
-  </div>
-  <div @click="toHistory" class="nav-bottom-item">
-    <History :is-blue="history"/>
+  <div class="nav-bottom-item" >
+    <House/>
+    Beranda
   </div>
   <div class="nav-bottom-item">
-    <DaftarPesanan/>
+    <ChartLine/>
+    Beranda
   </div>
   <div class="nav-bottom-item">
-    <MenuLapak/>
+    <ShoppingBag/>
+    Pesanan
   </div>
   <div class="nav-bottom-item">
-    <Saldo/>
+    <Notebook/>
+    Menu
+  </div>
+  <div class="nav-bottom-item">
+    <CreditCard/>
+    Saldo
+  </div>
+  <div class="nav-bottom-item">
+    <User/>
+    Profile
   </div>
 </div>
 </template>
@@ -24,25 +30,28 @@
 <script>
 import {reactive, toRefs} from "vue";
 import {useRouter} from "vue-router";
-import Profile from "@/components/icons/Profile";
-import Home from "@/components/icons/Home";
-import History from "@/components/icons/History";
-import MenuLapak from "@/components/icons/MenuLapak";
-import Saldo from "@/components/icons/Saldo";
-import DaftarPesanan from "@/components/icons/DaftarPesanan";
+
+import ChartLine from "@/components/icons/ChartLine";
+import House from "@/components/icons/House";
+import ShoppingBag from "@/components/icons/ShoppingBag";
+import Notebook from "@/components/icons/Notebook";
+import CreditCard from "@/components/icons/CreditCard";
+import User from "@/components/icons/User";
 
 export default {
   name: "BottomNav",
   components: {
-    Profile,
-    Home,
-    History,
-    MenuLapak,
-    Saldo,
-    DaftarPesanan
+    User,
+    CreditCard,
+    Notebook,
+    ShoppingBag,
+    House,
+    ChartLine,
   },
   setup(){
     const navState = reactive({
+      color: "#d0d0d0",
+
       profile:false,
       home:true,
       history:false,
@@ -109,6 +118,14 @@ export default {
   bottom: 0;
 
   box-shadow: 0 -2px 15px rgba(0, 0, 0, .15);
+}
+
+.nav-bottom-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 10px;
+  color: v-bind(color);
 }
 
 </style>

@@ -5,18 +5,20 @@
         <div class="header3">{{ title }}</div>
         <div class="title font-orange">{{ subtitle }}</div>
       </div>
-      <CevRight/>
+      <Cev
+        hex-color="#000000"
+      />
     </div>
   </div>
 </template>
 
 <script>
-import CevRight from "@/components/icons/CevRight";
+import Cev from "@/components/icons/Cev";
 
 export default {
   name: "CardHome",
   components: {
-    CevRight
+    Cev,
   },
   props: {
     title: {
