@@ -3,19 +3,22 @@
     <img class="card-pesanan-image" src="@/assets/images/lapak/lapak.png" alt="avatar"/>
     <div class="card-pesanan-wrapper">
       <div class="card-pesanan-deskripsi">
-        <div class="header3">TRX12345678901234</div>
-        <div class="description-menu mt-6px">02-01-2022, 00:00</div>
-        <div class="header4 font-orange">Belum Disiapkan</div>
+        <div class="header3">{{ title }}</div>
+        <div class="header4 font-orange">{{ description1 }}</div>
+        <div class="description-menu mt-6px">{{ description2 }}</div>
       </div>
       <div class="card-pesanan-action">
-        <div class="badge">
-          <div class="description-menu">5 Menu</div>
+        <div>
+          <div class="badge" v-if="badge">
+            <div class="description-menu">{{ badge }}</div>
+          </div>
         </div>
         <Button
+            v-if="useAction"
             btnStyle="outline-primary"
             p="sm"
             placeholder="Detail"
-            @action="action"
+            @action="$emit('onAction')"
         />
       </div>
     </div>
@@ -30,15 +33,25 @@ export default {
   components: {
     Button,
   },
-  setup() {
-    function action() {
-      console.log("asasdasdasd")
-    }
-
-    return {
-      action
-    }
-  }
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    description1: {
+      type: String,
+      required: true
+    },
+    description2: {
+      type: String,
+      required: true
+    },
+    badge: {
+      type: String,
+      required: false
+    },
+    useAction: Boolean
+  },
 }
 </script>
 

@@ -13,9 +13,9 @@
     </template>
     <template #content>
       <CardHome
-        title="Daftar Pesanan"
-        subtitle="3 Pesanan baru • 5 Belum diambil"
-        @onClick="toDaftarPesanan"
+          title="Daftar Pesanan"
+          subtitle="3 Pesanan baru • 5 Belum diambil"
+          @onClick="toDaftarPesanan"
       />
       <CardHome
           title="Kelola Menu dan Diskon"
@@ -50,13 +50,14 @@ export default {
   setup() {
     const router = useRouter();
 
-    function cardAction(){
+    function cardAction() {
       console.log('clookk')
     }
 
     function toDaftarPesanan() {
-      router.push("/lapak/daftar_pesanan")
+      router.push({name: 'ListPesanan'})
     }
+
     return {
       cardAction,
       toDaftarPesanan
@@ -66,7 +67,7 @@ export default {
 </script>
 
 <style scoped>
-.card-home-profile{
+.card-home-profile {
   padding: 16px;
   border-radius: 20px;
   box-shadow: var(--drop-shadow);

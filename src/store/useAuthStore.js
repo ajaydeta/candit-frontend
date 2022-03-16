@@ -1,6 +1,6 @@
 import db from "@/config/firestore";
 import {useToast} from '@/helpers'
-import {defineStore,} from 'pinia'
+import {defineStore} from 'pinia'
 
 import {
     collection,

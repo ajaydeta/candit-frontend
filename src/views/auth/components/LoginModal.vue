@@ -28,7 +28,7 @@
         />
         <template v-if="loginStore.role === 'siswa'">
           <div class="placeholder">Belum punya akun?</div>
-          <div class="titleButton1">Daftar</div>
+          <div class="titleButton1" @click="$emit('onDaftar')">Daftar</div>
         </template>
       </form>
     </div>

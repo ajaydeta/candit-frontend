@@ -30,7 +30,7 @@
         <Button id="submit" placeholder="Masuk" @action="registrasi()"/>
       </form>
       <div class="placeholder">Sudah punya akun?</div>
-      <div class="titleButton1">Masuk</div>
+      <div class="titleButton1" @click="$emit('onMasuk')">Masuk</div>
     </div>
   </div>
 </template>

@@ -2,17 +2,17 @@
   <div class="container-home">
     <div class="header1 dark-blue">Selamat Datang</div>
     <div class="wrapper-image">
-      <img src="@/assets/images/home-landing.svg" alt="" />
+      <img src="@/assets/images/home-landing.svg" alt=""/>
     </div>
     <div class="wrapper-bottom">
       <div class="header2 dark-blue">Masuk sebagai</div>
       <div class="wrapper-choise-user">
         <div class="choice-user" @click="openLoginModal('siswa')">
-          <img src="@/assets/images/siswa.svg" alt="" />
+          <img src="@/assets/images/siswa.svg" alt=""/>
           <div class="text header2 blue">SISWA</div>
         </div>
         <div class="choice-user" @click="openLoginModal('lapak')">
-          <img src="@/assets/images/lapak.svg" alt="" />
+          <img src="@/assets/images/lapak.svg" alt=""/>
           <div class="text header2 blue">LAPAK</div>
         </div>
       </div>
@@ -20,22 +20,19 @@
   </div>
 
   <LoginModal
-    v-if="showLoginModal"
-    :login-function="login"
-    @onClose="closeLoginModal"
+      v-if="showLoginModal"
+      :login-function="login"
+      @onClose="closeLoginModal"
+      @onDaftar="openRegistModal"
   />
 
-  <RegistrasiModal v-if="showRegistModal" />
+  <RegistrasiModal v-if="showRegistModal" @onClose="closeRegistModal" @onMasuk="closeRegistModal"/>
 </template>
 <script>
 import LoginModal from "./components/LoginModal.vue";
 import RegistrasiModal from "./components/RegistrasiModal.vue";
-import { ref, onMounted } from "vue";
-import { useAuthStore } from "@/store";
-// import { useToast } from "@/helpers";
-// import db from "@/config/firestore";
-// import { collection, getDocs } from "firebase/firestore/lite";
-// import {Registrasi} from '@/controller/auth'
+import {ref} from "vue";
+import {useAuthStore} from "@/store";
 
 export default {
   name: "Login",
@@ -46,7 +43,7 @@ export default {
   setup() {
     const store = useAuthStore();
     const showLoginModal = ref(false);
-    const showRegistModal = ref(true);
+    const showRegistModal = ref(false);
 
     function openLoginModal(role) {
       store.role = role;
@@ -58,23 +55,25 @@ export default {
       showLoginModal.value = false;
     }
 
+    function openRegistModal() {
+      showLoginModal.value = false;
+      showRegistModal.value = true;
+    }
+
+    function closeRegistModal() {
+      let roleTemp = store.role
+      store.$reset();
+      store.role = roleTemp
+      showLoginModal.value = true;
+      showRegistModal.value = false;
+    }
+
     function login() {
       console.log(store.username);
       console.log(store.password);
 
       localStorage.setItem("role", store.role);
     }
-
-    // async function getCities(db) {
-    //   const citiesCol = collection(db, "user");
-    //   const citySnapshot = await getDocs(citiesCol);
-    //   return citySnapshot.docs.map((doc) => doc.data());
-    // }
-
-    onMounted(() => {
-      // useToast('hokk')
-      // console.log(this.$moshaToast('Hmm..not as easy huh'))
-    });
 
     return {
       store,
@@ -83,6 +82,8 @@ export default {
       closeLoginModal,
       login,
       showRegistModal,
+      openRegistModal,
+      closeRegistModal
     };
   },
 };

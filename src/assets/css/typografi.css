@@ -114,3 +114,7 @@
 .font-dark-blue {
   color: var(--primary);
 }
+
+.text-left {
+  text-align: left;
+}
