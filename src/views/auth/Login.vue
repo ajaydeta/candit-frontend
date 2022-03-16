@@ -1,8 +1,17 @@
 <template>
   <div class="container-home">
-    <div class="header1 dark-blue">Selamat Datang</div>
+    <div class="header1 dark-blue">Hai, selamat datang</div>
     <div class="wrapper-image">
-      <img src="@/assets/images/home-landing.svg" alt=""/>
+      <LottieAnimation
+          class="lottie-login"
+          path="lottie/landing.json"
+          :speed="1"
+          :loop="true"
+          :autoPlay="true"
+
+          :width="300"
+      />
+<!--      <img src="@/assets/images/home-landing.svg" alt=""/>-->
     </div>
     <div class="wrapper-bottom">
       <div class="header2 dark-blue">Masuk sebagai</div>
@@ -31,6 +40,8 @@
 <script>
 import LoginModal from "./components/LoginModal.vue";
 import RegistrasiModal from "./components/RegistrasiModal.vue";
+import LottieAnimation from "lottie-vuejs/src/LottieAnimation.vue";
+
 import {ref} from "vue";
 import {useAuthStore} from "@/store";
 
@@ -39,6 +50,7 @@ export default {
   components: {
     LoginModal,
     RegistrasiModal,
+    LottieAnimation
   },
   setup() {
     const store = useAuthStore();
@@ -83,7 +95,7 @@ export default {
       login,
       showRegistModal,
       openRegistModal,
-      closeRegistModal
+      closeRegistModal,
     };
   },
 };
