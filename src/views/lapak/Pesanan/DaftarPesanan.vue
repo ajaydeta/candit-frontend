@@ -1,5 +1,5 @@
 <template>
-  <Base>
+  <Base menu-name="pesanan">
     <template #header>
       <CardHeader
           title="Daftar Pesanan"

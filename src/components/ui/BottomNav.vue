@@ -1,37 +1,31 @@
 <template>
-<div class="nav-bottom-container">
-  <div class="nav-bottom-item" >
-    <House/>
-    Beranda
+  <div class="nav-bottom-container">
+    <div class="nav-bottom-item" @click="action('home')" :class="{active: menuName === 'home'}">
+      <House :color="menuName === 'home' ? 'primary' : 'gray'"/>
+      Beranda
+    </div>
+    <div class="nav-bottom-item" @click="action('pesanan')" :class="{active: menuName === 'pesanan'}">
+      <ShoppingBag :color="menuName === 'pesanan' ? 'primary' : 'gray'"/>
+      Pesanan
+    </div>
+    <div class="nav-bottom-item" @click="action('menu')" :class="{active: menuName === 'menu'}" v-if="role === 'lapak'">
+      <Notebook :color="menuName === 'menu' ? 'primary' : 'gray'"/>
+      Menu
+    </div>
+    <div class="nav-bottom-item" @click="action('saldo')" :class="{active: menuName === 'saldo'}">
+      <CreditCard :color="menuName === 'saldo' ? 'primary' : 'gray'"/>
+      Saldo
+    </div>
+    <div class="nav-bottom-item" @click="action('profile')" :class="{active: menuName === 'profile'}">
+      <User :color="menuName === 'profile' ? 'primary' : 'gray'"/>
+      Profile
+    </div>
   </div>
-  <div class="nav-bottom-item">
-    <ChartLine/>
-    Beranda
-  </div>
-  <div class="nav-bottom-item">
-    <ShoppingBag/>
-    Pesanan
-  </div>
-  <div class="nav-bottom-item">
-    <Notebook/>
-    Menu
-  </div>
-  <div class="nav-bottom-item">
-    <CreditCard/>
-    Saldo
-  </div>
-  <div class="nav-bottom-item">
-    <User/>
-    Profile
-  </div>
-</div>
 </template>
 
 <script>
-import {reactive, toRefs} from "vue";
 import {useRouter} from "vue-router";
 
-import ChartLine from "@/components/icons/ChartLine";
 import House from "@/components/icons/House";
 import ShoppingBag from "@/components/icons/ShoppingBag";
 import Notebook from "@/components/icons/Notebook";
@@ -46,66 +40,56 @@ export default {
     Notebook,
     ShoppingBag,
     House,
-    ChartLine,
   },
-  setup(){
-    const navState = reactive({
-      color: "#d0d0d0",
-
-      profile:false,
-      home:true,
-      history:false,
-    })
-
+  props: {
+    menuName: {
+      type: String,
+      required: true
+    },
+  },
+  setup(props) {
     const role = localStorage.getItem("role")
     const router = useRouter();
 
-    function toHome() {
-      // eslint-disable-next-line no-empty
-      if (!navState.home){
-        navState.profile = false
-        navState.home = true
-        navState.history = false
-
-        router.push("/home-siswa")
+    function action(name) {
+      switch (name) {
+        case "home":
+          if (props.menuName !== "home") {
+            switch (role) {
+              case "siswa":
+                router.push({name: "HomeSiswa"});
+                break;
+              case "lapak":
+                router.push({name: "HomeLapak"});
+                break;
+            }
+          }
+          break;
+        case "pesanan":
+          if (props.menuName !== "pesanan") {
+            switch (role) {
+              case "siswa":
+                router.push({name: "HistoryOrder"});
+                break;
+              case "lapak":
+                router.push({name: "ListPesanan"});
+                break;
+            }
+          }
+          break;
       }
     }
 
-    function toProfile() {
-      // eslint-disable-next-line no-empty
-      if (!navState.profile){
-        navState.profile = true
-        navState.home = false
-        navState.history = false
-
-        // router.push("/profile")
-      }
-    }
-
-    function toHistory() {
-      // eslint-disable-next-line no-empty
-      if (!navState.history){
-        navState.profile = false
-        navState.home = false
-        navState.history = true
-
-        // router.push("/history")
-      }
-    }
-
-    return{
+    return {
       role,
-      ...toRefs(navState),
-      toHome,
-      toProfile,
-      toHistory
+      action
     }
   }
 }
 </script>
 
 <style scoped>
-.nav-bottom-container{
+.nav-bottom-container {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -125,7 +109,11 @@ export default {
   flex-direction: column;
   align-items: center;
   font-size: 10px;
-  color: v-bind(color);
+  color: var(--gray);
+}
+
+.active {
+  color: var(--primary);
 }
 
 </style>

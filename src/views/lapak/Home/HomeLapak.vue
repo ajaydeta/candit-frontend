@@ -1,5 +1,5 @@
 <template>
-  <Base>
+  <Base menu-name="home">
     <template #header>
       <div class="card-home-profile">
         <div class="image-container">

@@ -11,7 +11,6 @@
 
           :width="300"
       />
-<!--      <img src="@/assets/images/home-landing.svg" alt=""/>-->
     </div>
     <div class="wrapper-bottom">
       <div class="header2 dark-blue">Masuk sebagai</div>
@@ -44,6 +43,7 @@ import LottieAnimation from "lottie-vuejs/src/LottieAnimation.vue";
 
 import {ref} from "vue";
 import {useAuthStore} from "@/store";
+import {useRouter} from "vue-router";
 
 export default {
   name: "Login",
@@ -53,6 +53,7 @@ export default {
     LottieAnimation
   },
   setup() {
+    const router = useRouter();
     const store = useAuthStore();
     const showLoginModal = ref(false);
     const showRegistModal = ref(false);
@@ -83,6 +84,15 @@ export default {
     function login() {
       console.log(store.username);
       console.log(store.password);
+
+      switch (store.role) {
+        case "siswa":
+          router.push({name: "HomeSiswa"});
+          break;
+        case "lapak":
+          router.push({name: "HomeLapak"});
+          break;
+      }
 
       localStorage.setItem("role", store.role);
     }
