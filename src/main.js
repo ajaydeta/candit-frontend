@@ -13,6 +13,7 @@ import "./assets/css/base.css";
 import "./assets/css/typografi.css";
 import 'mosha-vue-toastify/dist/style.css'
 import 'animate.css';
+import './registerServiceWorker'
 
 createApp(App).
 use(router).
