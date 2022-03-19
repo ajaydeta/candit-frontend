@@ -1,5 +1,5 @@
 <template>
-  <div class="card-pesanan w-100">
+  <div class="card-pesanan w-100" @click="$emit('onCardAction')">
     <img class="card-pesanan-image" src="@/assets/images/lapak/lapak.png" alt="avatar"/>
     <div class="card-pesanan-wrapper">
       <div class="card-pesanan-deskripsi">

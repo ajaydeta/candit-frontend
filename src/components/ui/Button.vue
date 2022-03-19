@@ -1,6 +1,8 @@
 <template>
   <button :class="css" type="button" :id="id" @click="action">
-    {{ placeholder }}
+    <span class="titleButton2">
+      {{ placeholder }}
+    </span>
   </button>
 </template>
 
@@ -20,7 +22,7 @@ export default {
       default: "lg",
     },
   },
-  setup(props, { emit }) {
+  setup(props, {emit}) {
     let css = "";
     let cssClass = [];
 
@@ -39,12 +41,12 @@ export default {
         break;
       case "outline-primary":
         cssClass.push(
-          ...["bg-transparent", "font-dark-blue", "btn-border-primary"]
+            ...["bg-transparent", "font-dark-blue", "btn-border-primary"]
         );
         break;
       case "outline-danger":
         cssClass.push(
-          ...["bg-transparent", "font-orange", "btn-border-orange"]
+            ...["bg-transparent", "font-orange", "btn-border-orange"]
         );
         break;
     }
@@ -88,5 +90,9 @@ button {
 
 .btn-padding-sm {
   padding: 4px 16px;
+}
+
+.btn-padding-xsm {
+  padding: 2px 8px;
 }
 </style>

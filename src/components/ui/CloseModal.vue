@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "Close",
+  name: "CloseModal",
   props: {
     id: String,
     placeholder: String,

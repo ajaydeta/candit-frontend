@@ -29,9 +29,8 @@
             :title="pembelian.idpembelian"
             :description1="pembelianStore.getStatusPembelian(pembelian.idpembelian)"
             :description2="'Dibuat: ' + useFormatDate(pembelian.waktu)"
-            :use-action="true"
             :badge="pembelian.jumlahMenu + ' Menu'"
-            @onAction="action"
+            @onCardAction="action(pembelian.idpembelian)"
         />
       </div>
     </template>
@@ -103,11 +102,11 @@ export default {
       jumlahMenu: 31
     };
 
-    function action() {
+    function action(idpembelian) {
       router.push({
         name: 'DetailPesanan',
         params: {
-          idpembelian: 'TRX0000001'
+          idpembelian: idpembelian
         }
       })
     }

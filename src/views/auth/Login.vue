@@ -84,6 +84,7 @@ export default {
     function login() {
       console.log(store.username);
       console.log(store.password);
+      localStorage.setItem("role", store.role);
 
       switch (store.role) {
         case "siswa":
@@ -94,7 +95,6 @@ export default {
           break;
       }
 
-      localStorage.setItem("role", store.role);
     }
 
     return {
