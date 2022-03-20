@@ -1,54 +1,70 @@
 <template>
-  <div class="nav-bottom-container" :class="role === 'siswa' ? 'grid-row-4' : 'grid-row-5'">
-    <div class="nav-bottom-item" @click="action('home')" :class="{active: menuName === 'home'}">
-      <House :color="menuName === 'home' ? 'primary' : 'gray'"/>
+  <div
+    class="nav-bottom-container"
+    :class="role === 'siswa' ? 'grid-row-4' : 'grid-row-5'"
+  >
+    <div
+      class="nav-bottom-item"
+      @click="action('home')"
+      :class="{ active: menuName === 'home' }"
+    >
+      <House :color="menuName === 'home' ? 'primary' : 'gray'" />
       Beranda
     </div>
-    <div class="nav-bottom-item" @click="action('pesanan')" :class="{active: menuName === 'pesanan'}">
-      <ShoppingBag :color="menuName === 'pesanan' ? 'primary' : 'gray'"/>
+    <div
+      class="nav-bottom-item"
+      @click="action('pesanan')"
+      :class="{ active: menuName === 'pesanan' }"
+    >
+      <ShoppingBag :color="menuName === 'pesanan' ? 'primary' : 'gray'" />
       Pesanan
     </div>
     <div class="nav-bottom-item" @click="actionToSide" v-if="role !== 'siswa'">
       <div class="nav-botom-menu-action">
-        <Hamburger
-            v-if="!menuSide"
-            :size="28"
-            color="white"
-        />
-        <Close
-            v-else
-            color="white"
-            :size="28"
-        />
+        <Hamburger v-if="!menuSide" :size="28" color="white" />
+        <Close v-else color="white" :size="28" />
       </div>
     </div>
-    <div class="nav-bottom-item" @click="action('saldo')" :class="{active: menuName === 'saldo'}">
-      <CreditCard :color="menuName === 'saldo' ? 'primary' : 'gray'"/>
+    <div
+      class="nav-bottom-item"
+      @click="action('saldo')"
+      :class="{ active: menuName === 'saldo' }"
+    >
+      <CreditCard :color="menuName === 'saldo' ? 'primary' : 'gray'" />
       Saldo
     </div>
-    <div class="nav-bottom-item" @click="action('profile')" :class="{active: menuName === 'profile'}">
-      <User :color="menuName === 'profile' ? 'primary' : 'gray'"/>
+    <div
+      class="nav-bottom-item"
+      @click="action('profile')"
+      :class="{ active: menuName === 'profile' }"
+    >
+      <User :color="menuName === 'profile' ? 'primary' : 'gray'" />
       Profile
     </div>
   </div>
-  <div id="slide-menu" class="menu-side-container animate__animated animate__fadeInUpBig" v-if="menuSide">
-    <div class="side-bar-menu"></div>
+  <div
+    id="slide-menu"
+    class="menu-side-container animate__animated animate__fadeInUpBig"
+    v-if="menuSide"
+  >
+    <div class="side-bar-menu">
+      <SideMenuItem />
+    </div>
   </div>
 </template>
 
 <script>
-import {useRouter} from "vue-router";
+import { useRouter } from "vue-router";
 
 import House from "@/components/icons/House";
 import ShoppingBag from "@/components/icons/ShoppingBag";
-// import Notebook from "@/components/icons/Notebook";
 import CreditCard from "@/components/icons/CreditCard";
 import User from "@/components/icons/User";
 // import Clock from "@/components/icons/Clock";
 import Hamburger from "@/components/icons/Hamburger";
-import {ref} from "vue";
+import { ref } from "vue";
 import Close from "@/components/icons/Close";
-
+import SideMenuItem from "@/components/ui/navMenu/components/SideMenuItem";
 export default {
   name: "BottomNav",
   components: {
@@ -56,20 +72,20 @@ export default {
     // Clock,
     User,
     CreditCard,
-    // Notebook,
     ShoppingBag,
     House,
-    Hamburger
+    Hamburger,
+    SideMenuItem,
   },
   props: {
     menuName: {
       type: String,
-      required: true
+      required: true,
     },
   },
   setup(props) {
-    const menuSide = ref(false)
-    const role = localStorage.getItem("role")
+    const menuSide = ref(false);
+    const role = localStorage.getItem("role");
     const router = useRouter();
 
     function actionToSide() {
@@ -78,10 +94,10 @@ export default {
         wrapp.classList.remove("animate__fadeInUpBig");
         wrapp.classList.add("animate__fadeOutDownBig");
         setTimeout(() => {
-          menuSide.value = !menuSide.value
+          menuSide.value = !menuSide.value;
         }, 400);
       } else {
-        menuSide.value = !menuSide.value
+        menuSide.value = !menuSide.value;
       }
     }
 
@@ -91,10 +107,10 @@ export default {
           if (props.menuName !== "home") {
             switch (role) {
               case "siswa":
-                router.push({name: "HomeSiswa"});
+                router.push({ name: "HomeSiswa" });
                 break;
               case "lapak":
-                router.push({name: "HomeLapak"});
+                router.push({ name: "HomeLapak" });
                 break;
             }
           }
@@ -103,10 +119,10 @@ export default {
           if (props.menuName !== "pesanan") {
             switch (role) {
               case "siswa":
-                router.push({name: "HistoryOrder"});
+                router.push({ name: "HistoryOrder" });
                 break;
               case "lapak":
-                router.push({name: "ListPesanan"});
+                router.push({ name: "ListPesanan" });
                 break;
             }
           }
@@ -118,10 +134,10 @@ export default {
       role,
       menuSide,
       action,
-      actionToSide
-    }
-  }
-}
+      actionToSide,
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -137,8 +153,7 @@ export default {
   bottom: 0;
   z-index: 9999;
 
-  box-shadow: 0 -2px 15px rgba(0, 0, 0, .15);
-
+  box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.15);
 }
 
 .grid-row-4 {
@@ -192,5 +207,4 @@ export default {
   top: 0;
   overflow: auto;
 }
-
 </style>
