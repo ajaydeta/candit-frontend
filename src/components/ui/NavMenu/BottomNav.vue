@@ -44,11 +44,15 @@
   </div>
   <div
     id="slide-menu"
-    class="menu-side-container animate__animated animate__fadeInUpBig"
+    class="menu-side-container animate__anmated animate__fadeInUpBig"
     v-if="menuSide"
   >
     <div class="side-bar-menu">
-      <SideMenuItem />
+      <SideMenuItem
+        v-for="(sideItem, i) in menuSideItems"
+        :key="i"
+        :state="sideItem"
+      />
     </div>
   </div>
 </template>
@@ -60,7 +64,6 @@ import House from "@/components/icons/House";
 import ShoppingBag from "@/components/icons/ShoppingBag";
 import CreditCard from "@/components/icons/CreditCard";
 import User from "@/components/icons/User";
-// import Clock from "@/components/icons/Clock";
 import Hamburger from "@/components/icons/Hamburger";
 import { ref } from "vue";
 import Close from "@/components/icons/Close";
@@ -69,7 +72,6 @@ export default {
   name: "BottomNav",
   components: {
     Close,
-    // Clock,
     User,
     CreditCard,
     ShoppingBag,
@@ -130,11 +132,48 @@ export default {
       }
     }
 
+    const menuSideItems = [
+      {
+        title: "Beranda",
+        icon: "House",
+        route: {
+          name: "HomeLapak",
+        },
+      },
+      {
+        title: "Pesanan",
+        icon: "ShoppingBag",
+        route: {
+          name: "ListPesanan",
+        },
+      },
+      {
+        title: "Riwayat",
+        icon: "Clock",
+        children: [
+          {
+            title: "Pesanan",
+            route: {
+              name: "HomeLapak",
+            },
+          },
+        ],
+      },
+      {
+        title: "Saldo",
+        icon: "CreditCard",
+        route: {
+          name: "HomeLapak",
+        },
+      },
+    ];
+
     return {
       role,
       menuSide,
       action,
       actionToSide,
+      menuSideItems,
     };
   },
 };
@@ -206,5 +245,8 @@ export default {
   right: 0;
   top: 0;
   overflow: auto;
+}
+.side-bar-menu {
+  padding: 12px 24px;
 }
 </style>
