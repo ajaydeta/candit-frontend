@@ -9,7 +9,7 @@
         <InputGeneral
           id="user"
           placeholder="Nama pengguna"
-          v-model:val="loginStore.username"
+          v-model:val="loginStore.email"
           :val="username"
         />
         <InputPassword

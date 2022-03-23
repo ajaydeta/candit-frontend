@@ -146,7 +146,7 @@ export default {
         route: {
           name: "ListPesanan",
         },
-      },
+      },  
       {
         title: "Riwayat",
         icon: "Clock",

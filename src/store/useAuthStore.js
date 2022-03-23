@@ -1,6 +1,7 @@
 import db from "@/config/firestore";
 import {useToast} from '@/helpers'
 import {defineStore} from 'pinia'
+import bcrypt from 'bcryptjs';
 
 import {
     collection,
@@ -9,10 +10,10 @@ import {
     getDocs,
     query,
     where,
-    setDoc
+    setDoc,
+    limit
 } from "firebase/firestore/lite";
 
-const collectionName = "user"
 
 const state = () => ({
     nis: "",
@@ -24,6 +25,7 @@ const state = () => ({
 
 const actions = {
     async registerSiswa() {
+        const collectionName = "siswa"
         const collRef = collection(db, collectionName);
         const docRef = doc(db, collectionName, this.nis);
         const docSnap = await getDoc(docRef);
@@ -40,14 +42,28 @@ const actions = {
                     password: this.password
                 });
                 useToast("Akun anda telah berhasil terdaftar.")
-                this.$reset();
+                this.$reset(); 
             }
         }
+    },
 
-        // const userCol = collection(db, "user");
-        // const citySnapshot = await getDocs(userCol);
-        // return citySnapshot.docs.map((doc) => doc.data());
-    }
+    async login() {
+        const collRef = collection(db, "lapak");
+        const querySnapshot = await getDocs(query(collRef, where("email", "==", this.email), limit(1)));
+        if (querySnapshot.empty) {
+            useToast("Email tidak terdaftar.", "danger")
+            return false;
+        }
+
+        const userData = querySnapshot.docs[0].data();
+        const validPassword = bcrypt.compareSync(this.password, userData.password);
+        if (!validPassword) {
+            useToast("Password salah", "danger")
+            return false;
+        }
+
+        return validPassword
+    },
 }
 
 export const useAuthStore = defineStore("authStore", {

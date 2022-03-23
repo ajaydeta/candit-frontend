@@ -1,7 +1,8 @@
+import LapakBase from "@/views/lapak/LapakBase";
 import HomeLapak from "@/views/lapak/Home/HomeLapak";
 import DaftarPesanan from "@/views/lapak/Pesanan/DaftarPesanan";
-import LapakBase from "@/views/lapak/LapakBase";
 import DetailPesanan from "@/views/lapak/Pesanan/DetailPesanan";
+import ProfileLapak from "@/views/lapak/Profile/ProfileLapak";
 
 export default {
     path: "/lapak",
@@ -30,5 +31,10 @@ export default {
                 }
             ]
         },
+        {
+            path: "profile",
+            name: "Profile",
+            component: ProfileLapak,
+        }
     ]
 }

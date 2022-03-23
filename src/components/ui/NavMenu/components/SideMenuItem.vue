@@ -1,7 +1,11 @@
 <template>
   <div
     class="side-item-menu-container"
-    @click="state.children && state.children.length > 0 ? openChild('Children' + state.title.replace(' ', '')) : navigate(state.route)"
+    @click="
+      state.children && state.children.length > 0
+        ? openChild('Children' + state.title.replace(' ', ''))
+        : navigate(state.route)
+    "
   >
     <div class="main-container">
       <div class="main-side-menu">
@@ -25,7 +29,9 @@
     >
       <div class="main-side-menu" v-for="(child, i) in state.children" :key="i">
         <CevDuo />
-        <div class="side-text-menu" @click="navigate(child.route)">{{ child.title }}</div>
+        <div class="side-text-menu" @click="navigate(child.route)">
+          {{ child.title }}
+        </div>
       </div>
     </div>
   </div>
@@ -46,7 +52,7 @@ import SearchMagnifyingGlass from "@/components/icons/SearchMagnifyingGlass";
 import ShoppingBag from "@/components/icons/ShoppingBag";
 import User from "@/components/icons/User";
 import { useRouter } from "vue-router";
-import { ref } from '@vue/reactivity';
+import { ref } from "@vue/reactivity";
 
 export default {
   name: "SideMenuItem",
@@ -72,7 +78,7 @@ export default {
     },
   },
   setup() {
-    const childOpen = ref(false)
+    const childOpen = ref(false);
     const router = useRouter();
 
     function navigate(route) {
@@ -82,17 +88,17 @@ export default {
 
     function openChild(id) {
       let el = document.getElementById(id);
-      if (el.classList.contains('show')) {
-        el.classList.remove('show');
+      if (el.classList.contains("show")) {
+        el.classList.remove("show");
       } else {
-        el.classList.add('show');
+        el.classList.add("show");
       }
     }
 
     return {
       childOpen,
       navigate,
-      openChild
+      openChild,
     };
   },
 };

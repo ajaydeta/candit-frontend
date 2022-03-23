@@ -1,7 +1,7 @@
-const fs = require('fs')
+const bcrypt = require("bcrypt");
 
-fs.readdir('./src/components/icons', (err, files) => {
-    files.forEach(file => {
-        console.log(file.path);
+bcrypt.genSalt(10, function (err, salt) {
+    bcrypt.hash("memek", salt, function (err, hash) {
+        console.log(hash);
     });
 });
