@@ -67,7 +67,7 @@ import User from "@/components/icons/User";
 import Hamburger from "@/components/icons/Hamburger";
 import { ref } from "vue";
 import Close from "@/components/icons/Close";
-import SideMenuItem from "@/components/ui/navMenu/components/SideMenuItem";
+import SideMenuItem from "@/components/ui/NavMenu/components/SideMenuItem";
 export default {
   name: "BottomNav",
   components: {
@@ -146,7 +146,7 @@ export default {
         route: {
           name: "ListPesanan",
         },
-      },  
+      },
       {
         title: "Riwayat",
         icon: "Clock",

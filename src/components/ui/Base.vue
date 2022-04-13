@@ -3,24 +3,22 @@
     <slot name="header"></slot>
     <slot name="content"></slot>
   </div>
-  <BottomNav
-      :menu-name="menuName"
-  />
+  <BottomNav :menu-name="menuName" />
 </template>
 
 <script>
-import BottomNav from "@/components/ui/navMenu/BottomNav";
+import BottomNav from "@/components/ui/NavMenu/BottomNav";
 
 export default {
   name: "Base",
-  components: {BottomNav},
+  components: { BottomNav },
   props: {
     menuName: {
       type: String,
-      required: true
+      required: true,
     },
-  }
-}
+  },
+};
 </script>
 
 <style scoped>
