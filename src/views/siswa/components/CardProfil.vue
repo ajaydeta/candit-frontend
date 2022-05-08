@@ -23,7 +23,7 @@ export default {
 .content-box-content {
   position: relative;
   height: 100%;
-  padding: 30px;
+  padding: 20px;
 
   background: var(--white);
   box-shadow: var(--drop-shadow);
