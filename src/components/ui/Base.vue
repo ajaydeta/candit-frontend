@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import BottomNav from "@/components/ui/NavMenu/BottomNav";
+import BottomNav from "@/components/ui/navMenu/BottomNav";
 
 export default {
   name: "Base",

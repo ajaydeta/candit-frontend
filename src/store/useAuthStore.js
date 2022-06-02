@@ -48,7 +48,7 @@ const actions = {
     },
 
     async login() {
-        const collRef = collection(db, "lapak");
+        const collRef = collection(db, "siswa");
         const querySnapshot = await getDocs(query(collRef, where("email", "==", this.email), limit(1)));
         if (querySnapshot.empty) {
             useToast("Email tidak terdaftar.", "danger")
